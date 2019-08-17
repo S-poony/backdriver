@@ -4,7 +4,7 @@ class Hero {
         this.y = 200;
         this.width = 100;
         this.height = 10;
-        this.angle = 45;
+        this.angle = 0;
         this.el = document.getElementById("hero");
         this.bullets = [];
         window.addEventListener("click", _ => {
@@ -19,7 +19,7 @@ class Hero {
         this.el.setAttribute("height", this.height);
         let angleDeg = this.angle * 360 / (2 * Math.PI);
         this.el.setAttribute("transform",
-            `rotate(${angleDeg} ${this.x + dx} ${this.y + dx})`);
+            `rotate(${angleDeg} ${this.x} ${this.y})`);
         for (const bullet of this.bullets) {
             bullet.draw();
         }
@@ -41,8 +41,9 @@ class Hero {
 
 class Bullet {
     constructor(origin) {
-        this.x = origin.x + Math.cos(origin.angle) * origin.width;
-        this.y = origin.y + Math.sin(origin.angle) * origin.width;
+        let w = origin.width - origin.height / 2;
+        this.x = origin.x + Math.cos(origin.angle) * w;
+        this.y = origin.y + Math.sin(origin.angle) * w;
         this.angle = origin.angle;
         this.radius = 5;
         this.speed = 0.3;
