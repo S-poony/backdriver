@@ -41,11 +41,11 @@ class Hero {
 
 class Bullet {
     constructor(origin) {
-        this.x = origin.x;
-        this.y = origin.y;
+        this.x = origin.x + Math.cos(origin.angle) * origin.width;
+        this.y = origin.y + Math.sin(origin.angle) * origin.width;
         this.angle = origin.angle;
-        this.radius = 10;
-        this.speed = 0.1;
+        this.radius = 5;
+        this.speed = 0.3;
         this.el = document.createElementNS(
             "http://www.w3.org/2000/svg",
             "circle"
