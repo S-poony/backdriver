@@ -28,7 +28,7 @@ class Hero {
         this.angle = 0;
         this.el = document.getElementById("hero");
         this.pickup = new AssetRect("pickup", this.x, this.y, 1000, 1000)
-        this.shooter = new AssetRect("shooter", this.x, this.y, 100, 100)
+        this.zombie = new AssetRect("zombie", this.x, this.y, 100, 100)
 
         this.bullets = [];
         window.addEventListener("click", _ => {
@@ -49,7 +49,7 @@ class Hero {
             bullet.draw();
         }
         this.pickup.draw();
-        this.shooter.draw();
+        this.zombie.draw();
     }
     update(dt) {
         this.pointTo(mouse);
