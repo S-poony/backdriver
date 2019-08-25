@@ -1,3 +1,24 @@
+class AssetRect {
+    constructor(filename, x, y, width, height) {
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+        this.el = document.createElementNS("http://www.w3.org/2000/svg", "use")
+        this.el.setAttribute("witdh", this.width)
+        this.el.setAttribute("height", this.height)
+        this.el.setAttribute("x", this.x)
+        this.el.setAttribute("y", this.y)
+        this.el.setAttribute('href', `assets/${filename}.svg#main`)
+        svg.appendChild(this.el);
+    }
+    draw(){
+        this.el.setAttribute("witdh", this.width)
+        this.el.setAttribute("height", this.height)
+        this.el.setAttribute("x", this.x)
+        this.el.setAttribute("y", this.y)
+    }
+}
 class Hero {
     constructor() {
         this.x = 200;
@@ -6,6 +27,9 @@ class Hero {
         this.height = 10;
         this.angle = 0;
         this.el = document.getElementById("hero");
+        this.pickup = new AssetRect("pickup", this.x, this.y, 1000, 1000)
+        this.shooter = new AssetRect("shooter", this.x, this.y, 100, 100)
+
         this.bullets = [];
         window.addEventListener("click", _ => {
             this.fire()
@@ -20,9 +44,12 @@ class Hero {
         let angleDeg = this.angle * 360 / (2 * Math.PI);
         this.el.setAttribute("transform",
             `rotate(${angleDeg} ${this.x} ${this.y})`);
+
         for (const bullet of this.bullets) {
             bullet.draw();
         }
+        this.pickup.draw();
+        this.shooter.draw();
     }
     update(dt) {
         this.pointTo(mouse);
@@ -97,7 +124,7 @@ function update(currentTime) {
 }
 
 window.onload = function () {
-    hero = new Hero();
     svg = document.getElementById("gameSvg");
+    hero = new Hero();
     update(Date.now());
 }
