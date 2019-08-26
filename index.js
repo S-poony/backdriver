@@ -27,8 +27,10 @@ class Hero {
         this.height = 10;
         this.angle = 0;
         this.el = document.getElementById("hero");
-        this.pickup = new AssetRect("pickup", this.x, this.y, 1000, 1000)
+        this.pickup = new AssetRect("pickup", this.x, this.y, 100, 100)
         this.zombie = new AssetRect("zombie", this.x, this.y, 100, 100)
+
+        this.arm = new AssetRect("arm", 185, 210, 100, 50)
 
         this.bullets = [];
         window.addEventListener("click", _ => {
@@ -36,14 +38,14 @@ class Hero {
         })
     }
     draw() {
-        let dx = this.height / 2;
-        this.el.setAttribute("x", this.x - dx);
-        this.el.setAttribute("y", this.y - dx);
-        this.el.setAttribute("width", this.width);
-        this.el.setAttribute("height", this.height);
-        let angleDeg = this.angle * 360 / (2 * Math.PI);
-        this.el.setAttribute("transform",
-            `rotate(${angleDeg} ${this.x} ${this.y})`);
+        let dx = this.arm.height / 2;
+        this.arm.el.setAttribute("x", this.arm.x - dx);
+        this.arm.el.setAttribute("y", this.arm.y - dx);
+        this.arm.el.setAttribute("width", 140);
+        this.arm.el.setAttribute("height", 100);
+        let angleDeg = this.arm.angle * 360 / (2 * Math.PI);
+        this.arm.el.setAttribute("transform",
+            `rotate(${angleDeg} ${this.arm.x} ${this.arm.y})`);
 
         for (const bullet of this.bullets) {
             bullet.draw();
@@ -59,7 +61,7 @@ class Hero {
     }
 
     pointTo(o) {
-        this.angle = angleBetween(this, o);
+        this.arm.angle = angleBetween(this.arm, o);
     }
     fire() {
         this.bullets.push(new Bullet(this));

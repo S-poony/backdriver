@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   height="110mm"
+   viewBox="0 0 210 110"
    version="1.1"
-   id="svg4677"
+   id="main"
    inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
-   sodipodi:docname="tireur bras(2).svg">
+   sodipodi:docname="arm.svg">
   <defs
      id="defs4671" />
   <sodipodi:namedview
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.24748737"
-     inkscape:cx="-879.61256"
+     inkscape:cx="-210.89157"
      inkscape:cy="605.18924"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -44,18 +44,18 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-187)">
     <g
-       id="arm"
-       inkscape:label="#g4017"
-       transform="translate(-107.97689,-17.10525)">
+       id="g84"
+       transform="matrix(0,-0.25790329,0.25790329,0,71.590634,225.7396)">
       <path
          inkscape:connector-curvature="0"
          id="rect4679"
