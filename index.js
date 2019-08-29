@@ -12,7 +12,7 @@ class AssetRect {
         this.el.setAttribute('href', `assets/${filename}.svg#main`)
         svg.appendChild(this.el);
     }
-    draw(){
+    draw() {
         this.el.setAttribute("witdh", this.width)
         this.el.setAttribute("height", this.height)
         this.el.setAttribute("x", this.x)
@@ -23,13 +23,13 @@ class Hero {
     constructor() {
         this.x = 200;
         this.y = 200;
-        this.width = 100;
+        this.width = 50;
         this.height = 10;
         this.el = document.getElementById("hero");
         this.pickup = new AssetRect("pickup", this.x, this.y, 100, 100)
         this.zombie = new AssetRect("zombie", this.x, this.y, 100, 100)
 
-        this.arm = new AssetRect("arm", 185, 210, 100, 50)
+        this.arm = new AssetRect("arm", this.x + this.width / 4, this.y, 50, 50)
 
         this.bullets = [];
         window.addEventListener("click", _ => {
