@@ -25,7 +25,6 @@ class Hero {
         this.y = 200;
         this.width = 100;
         this.height = 10;
-        this.angle = 0;
         this.el = document.getElementById("hero");
         this.pickup = new AssetRect("pickup", this.x, this.y, 100, 100)
         this.zombie = new AssetRect("zombie", this.x, this.y, 100, 100)
@@ -39,10 +38,6 @@ class Hero {
     }
     draw() {
         let dx = this.arm.height / 2;
-        this.arm.el.setAttribute("x", this.arm.x - dx);
-        this.arm.el.setAttribute("y", this.arm.y - dx);
-        this.arm.el.setAttribute("width", 140);
-        this.arm.el.setAttribute("height", 100);
         let angleDeg = this.arm.angle * 360 / (2 * Math.PI);
         this.arm.el.setAttribute("transform",
             `rotate(${angleDeg} ${this.arm.x} ${this.arm.y})`);
@@ -64,7 +59,7 @@ class Hero {
         this.arm.angle = angleBetween(this.arm, o);
     }
     fire() {
-        this.bullets.push(new Bullet(this));
+        this.bullets.push(new Bullet(this.arm));
     }
 }
 
